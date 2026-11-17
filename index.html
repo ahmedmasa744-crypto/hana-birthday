@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana's Birthday</title>
+
+    <style>
+        body {
+            background: linear-gradient(
+                135deg,
+                #e6d5ff,
+                #ffcce5,
+                #cceaff
+            );
+
+            font-family: Georgia, serif;
+            text-align: center;
+            padding-top: 120px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            width: 300px;
+            max-width: 85%;
+            margin: auto;
+            box-shadow: 0 5px 20px #aaa;
+        }
+
+        h1 {
+            color: #b27bd8;
+        }
+
+        p {
+            color: #8873a9;
+        }
+
+        input {
+            padding: 12px;
+            border-radius: 15px;
+            border: 1px solid pink;
+            text-align: center;
+        }
+
+        button {
+            background: #dba5e8;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a98bd8;
+        }
+
+        img {
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- PASSWORD PAGE -->
+
+    <div class="box" id="login">
+
+        <h1>Welcome Hana! 💗</h1>
+
+        <p>
+            Before your surprise,
+            answer our little question!
+        </p>
+
+        <h3>What grade were we in when we first met?</h3>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+        >
+
+        <br>
+
+        <button onclick="checkPassword()">
+            Unlock My Surprise 🔐
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <!-- BIRTHDAY MESSAGE -->
+
+    <div class="box" id="letter" style="display:none;">
+
+        <h1>hanonty</h1>
+
+        <h2>Happy Birthday ya rohi!</h2>
+
+        <p>
+            I'm so lucky to have you in my life rbna ykhlkii lya ya hanonty
+        </p>
+
+        <p>
+            You are the closest person to me w bhbkk awii w btshmly hbly w msaybi rbna ykhlini leky🫰
+        </p>
+
+        <p>
+            I hope all your dreams come true w ngeb el supplies el gamaa maa baad w ana bklm sahbii w mnbaadsh fe thanwi maadrsh abaad aank mhdesh hysthml el msayb gherk
+        </p>
+
+        <h2>bhbkk yaa hanontyy</h2>
+
+        <button onclick="showMemories()">Next 💗</button>
+
+    </div>
+
+
+    <!-- MEMORIES PAGE -->
+
+    <div class="box" id="memories" style="display:none;">
+
+        <h1>Some of Our Memories 💜</h1>
+
+        <p>Every picture has a story and a beautiful memory!</p>
+
+        <img src="images/hana.jpg%20.jpeg" alt="Our Memory" width="300">
+
+        <button onclick="showGameStart()">
+            Let's See Our Memories ✨
+        </button>
+
+    </div>
+
+
+    <!-- GAME INTRO -->
+
+    <div class="box" id="gameStart" style="display:none;">
+
+        <h1>Let's see if you remember our memories! 💗</h1>
+
+        <button onclick="startGame()">Let's Play ✨</button>
+
+    </div>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="box" id="question1" style="display:none;">
+
+        <h2>Question 1 💜</h2>
+
+       <img src="images/memory1.jpg.jpeg" alt="Memory 1" width="300">
+
+        <p>What was in this picture?</p>
+
+        <button onclick="checkAnswer(0, 'Giraffe')">Giraffe</button>
+        <button onclick="checkAnswer(0, 'Elephant')">Elephant</button>
+        <button onclick="checkAnswer(0, 'Monkey')">Monkey</button>
+
+        <p id="feedback1"></p>
+
+        <button id="next1" onclick="nextQuestion(1)" style="display:none;">
+            Next 💗
+        </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="box" id="question2" style="display:none;">
+
+        <h2>Question 2 💜</h2>
+
+      <img src="images/memory2.jpg.jpeg" alt="Memory 2" width="300">
+
+        <p>What did we get that day?</p>
+
+        <button onclick="checkAnswer(1, 'Duck')">Duck</button>
+        <button onclick="checkAnswer(1, 'Sonic')">Sonic</button>
+        <button onclick="checkAnswer(1, 'Batman')">Batman</button>
+
+        <p id="feedback2"></p>
+
+        <button id="next2" onclick="nextQuestion(2)" style="display:none;">
+            Next 💗
+        </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="box" id="question3" style="display:none;">
+
+        <h2>Question 3 💜</h2>
+
+        <img src="images/memory3.jpg.jpeg" alt="Memory 3" width="300">
+
+        <p>Who took this picture?</p>
+
+        <button onclick="checkAnswer(2, 'Nour')">Nour</button>
+        <button onclick="checkAnswer(2, 'Fayrouz')">Fayrouz</button>
+        <button onclick="checkAnswer(2, 'Mariam')">Mariam</button>
+
+        <p id="feedback3"></p>
+
+        <button id="next3" onclick="nextQuestion(3)" style="display:none;">
+            Next 💗
+        </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="box" id="question4" style="display:none;">
+
+        <h2>Question 4 💜</h2>
+
+       <img src="images/memory4.jpg.jpeg" alt="Memory 4" width="300">
+
+        <p>What were we doing that day?</p>
+
+        <button onclick="checkAnswer(3, 'Having breakfast')">Having breakfast</button>
+        <button onclick="checkAnswer(3, 'Walking')">Walking</button>
+        <button onclick="checkAnswer(3, 'Shopping')">Shopping</button>
+
+        <p id="feedback4"></p>
+
+        <button id="next4" onclick="nextQuestion(4)" style="display:none;">
+            Next 💗
+        </button>
+
+    </div>
+
+
+    <!-- FINAL PAGE -->
+
+    <div class="box" id="finish" style="display:none;">
+
+        <h1>Happy Birthday Hana! 💗</h1>
+
+        <p>I hope we make a million more memories together!</p>
+
+    </div>
+
+
+    <script>
+
+        function checkPassword() {
+
+            let password = document.getElementById("password").value.trim().toLowerCase();
+
+            if (password === "1prep") {
+
+                document.getElementById("login").style.display = "none";
+                document.getElementById("letter").style.display = "block";
+
+            } else {
+
+                document.getElementById("message").innerHTML =
+                    "Wrong password! Try again 💜";
+
+            }
+
+        }
+
+
+        function showMemories() {
+
+            document.getElementById("letter").style.display = "none";
+            document.getElementById("memories").style.display = "block";
+
+        }
+
+
+        function showGameStart() {
+
+            document.getElementById("memories").style.display = "none";
+            document.getElementById("gameStart").style.display = "block";
+
+        }
+
+
+        function startGame() {
+
+            document.getElementById("gameStart").style.display = "none";
+            document.getElementById("question1").style.display = "block";
+
+        }
+
+
+        let answers = [
+            "Giraffe",
+            "Sonic",
+            "Nour",
+            "Having breakfast"
+        ];
+
+        let messages = [
+            "Correct! 💜",
+            "That's something unforgettable!",
+            "Good job! ✨",
+            "You have a good memory!"
+        ];
+
+
+        function checkAnswer(question, selected) {
+
+            let feedback = document.getElementById("feedback" + (question + 1));
+
+            if (selected === answers[question]) {
+
+                feedback.innerHTML = messages[question];
+
+                document.getElementById("next" + (question + 1)).style.display = "inline-block";
+
+            } else {
+
+                feedback.innerHTML = "Try again! 💗";
+
+            }
+
+        }
+
+
+        function nextQuestion(number) {
+
+    document.getElementById("question" + number).style.display = "none";
+
+    if (number < 4) {
+        document.getElementById("question" + (number + 1)).style.display = "block";
+    } else {
+        document.getElementById("video").style.display = "block";
+    }
+
+}
+
+    </script>
+<div class="box" id="video" style="display:none;">
+
+    <h1>One Last Surprise! 💜</h1>
+
+    <p>A little video full of our memories. Love you, Hana! 💗</p>
+
+    <video width="300" controls>
+        <source src="images/WhatsApp%20Video%202026-11-16%20at%207.18.34%20PM.mp4" type="video/mp4">
+    </video>
+
+    <h2>Happy Birthday, Hanonty! 🎂</h2>
+
+</div>
+</body>
+</html>
